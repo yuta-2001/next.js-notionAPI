@@ -14,6 +14,8 @@ export const Text = ({ text }) => {
       annotations: { bold, code, color, italic, strikethrough, underline },
       text,
     } = value;
+    //乱数生成
+    const distinction = Math.random();
     return (
       <span
         className={[
@@ -23,6 +25,7 @@ export const Text = ({ text }) => {
           strikethrough ? styles.strikethrough : "",
           underline ? styles.underline : "",
         ].join(" ")}
+        key={distinction}
         style={color !== "default" ? { color } : {}}
       >
         {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
